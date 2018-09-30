@@ -6,7 +6,7 @@
 //  Copyright © 2018 dberger1. All rights reserved.
 //
 
-//5:06
+// Dark Cover View
 
 import UIKit
 
@@ -14,6 +14,8 @@ class HomeController: UITableViewController {
     
     let menuController = MenuTableViewController()
     fileprivate let menuWidth: CGFloat = 300
+    fileprivate var isMenuOpen = false
+    fileprivate let velocityOpenThreshold: CGFloat = 500
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,39 +60,71 @@ class HomeController: UITableViewController {
                        options: .curveEaseOut,
                        animations: {
                         self.menuController.view.transform = transform
-//                        self.view.transform = transform
+                        //                        self.view.transform = transform
                         self.navigationController?.view.transform = transform
         },
                        completion: nil)
     }
     
     @objc func handleOpen() {
-        print("Opening menu...")
+        isMenuOpen = true
         performAnimations(transform: CGAffineTransform(translationX: self.menuWidth, y: 0))
     }
     
     @objc func handleHide() {
-        print("Hiding menu...")
+        isMenuOpen = false
         performAnimations(transform: .identity)
     }
     
     @objc func handlePan(gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: view)
-//        print(translation)
         if gesture.state == .changed {
             var x = translation.x
+            
+            if isMenuOpen {
+                // x += 300
+                x += menuWidth
+            }
+            
             x = min(menuWidth, x)
             x = max(0, x)
             
             let transform = CGAffineTransform(translationX: x, y: 0)
             menuController.view.transform = transform
             navigationController?.view.transform = transform
-            
         } else if gesture.state == .ended {
-            handleOpen()
-            
+            handleEnded(gesture: gesture)
         }
     }
+    
+    fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: view)
         
+        let velocity = gesture.velocity(in: view)
+        print("Velocity: ", velocity.x)
+        if isMenuOpen {
+            if abs(velocity.x) > velocityOpenThreshold {
+                handleHide()
+                return
+            }
+            if abs(translation.x) < menuWidth / 2 {
+                handleOpen()
+            } else {
+                handleHide()
+            }
+        } else {
+            if velocity.x > velocityOpenThreshold {
+                handleOpen()
+                return
+            }
+            
+            if translation.x < menuWidth/2 {
+                handleHide()
+            } else {
+                handleOpen()
+            }
+        }
+    }
+    
 }
 
