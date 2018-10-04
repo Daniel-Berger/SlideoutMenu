@@ -1,5 +1,5 @@
 //
-//  MenuTableViewController.swift
+//  MenuController.swift
 //  SlideOutMenu
 //
 //  Created by dberger1 on 9/28/18.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MenuTableViewController: UITableViewController {
+class MenuController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = .blue
+        tableView.backgroundColor = .orange
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

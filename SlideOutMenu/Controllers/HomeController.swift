@@ -12,15 +12,10 @@ import UIKit
 
 class HomeController: UITableViewController {
     
-    let menuController = MenuTableViewController()
+    let menuController = MenuController()
     fileprivate let menuWidth: CGFloat = 300
     fileprivate var isMenuOpen = false
     fileprivate let velocityOpenThreshold: CGFloat = 500
-    
-    fileprivate func setupPanGesture() {
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        view.addGestureRecognizer(panGesture)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +24,8 @@ class HomeController: UITableViewController {
         setupNavigationItem()
         setupMenuController()
         
-        setupPanGesture()
+        // commented out setupPanGesture to allow scrolling
+//        setupPanGesture()
         setupDarkCoverView()
     }
     
@@ -46,6 +42,21 @@ class HomeController: UITableViewController {
         mainWindow?.addSubview(menuController.view)
         addChild(menuController)
     }
+    
+    fileprivate func setupPanGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+//        panGesture.delegate = self
+        view.addGestureRecognizer(panGesture)
+    }
+    
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        // issue #1
+//        return true
+//    }
+    
+//    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//        // issue #2- manually calculate new frames when view resizes
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -127,7 +138,7 @@ class HomeController: UITableViewController {
         let translation = gesture.translation(in: view)
         
         let velocity = gesture.velocity(in: view)
-        print("Velocity: ", velocity.x)
+//        print("Velocity: ", velocity.x)
         if isMenuOpen {
             if abs(velocity.x) > velocityOpenThreshold {
                 handleHide()

@@ -12,7 +12,8 @@
 		4FC83E23215DCC8300D4C2C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC83E21215DCC8300D4C2C0 /* Main.storyboard */; };
 		4FC83E25215DCC8400D4C2C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FC83E24215DCC8400D4C2C0 /* Assets.xcassets */; };
 		4FC83E28215DCC8400D4C2C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FC83E26215DCC8400D4C2C0 /* LaunchScreen.storyboard */; };
-		4FC83E31215E7BA000D4C2C0 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E30215E7BA000D4C2C0 /* MenuTableViewController.swift */; };
+		4FC83E31215E7BA000D4C2C0 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E30215E7BA000D4C2C0 /* MenuController.swift */; };
+		4FC83E3421664C2500D4C2C0 /* BaseSlidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E3321664C2500D4C2C0 /* BaseSlidingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,8 @@
 		4FC83E24215DCC8400D4C2C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FC83E27215DCC8400D4C2C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4FC83E29215DCC8400D4C2C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FC83E30215E7BA000D4C2C0 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		4FC83E30215E7BA000D4C2C0 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
+		4FC83E3321664C2500D4C2C0 /* BaseSlidingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSlidingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		4FC83E1C215DCC8300D4C2C0 /* SlideOutMenu */ = {
 			isa = PBXGroup;
 			children = (
+				4FC83E3221664C0A00D4C2C0 /* Base */,
 				4FC83E2F215E7B8800D4C2C0 /* Controllers */,
 				4FC83E1D215DCC8300D4C2C0 /* AppDelegate.swift */,
 				4FC83E21215DCC8300D4C2C0 /* Main.storyboard */,
@@ -69,10 +72,18 @@
 		4FC83E2F215E7B8800D4C2C0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4FC83E30215E7BA000D4C2C0 /* MenuTableViewController.swift */,
+				4FC83E30215E7BA000D4C2C0 /* MenuController.swift */,
 				4FC83E1F215DCC8300D4C2C0 /* HomeController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4FC83E3221664C0A00D4C2C0 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4FC83E3321664C2500D4C2C0 /* BaseSlidingViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,7 +159,8 @@
 			files = (
 				4FC83E20215DCC8300D4C2C0 /* HomeController.swift in Sources */,
 				4FC83E1E215DCC8300D4C2C0 /* AppDelegate.swift in Sources */,
-				4FC83E31215E7BA000D4C2C0 /* MenuTableViewController.swift in Sources */,
+				4FC83E3421664C2500D4C2C0 /* BaseSlidingViewController.swift in Sources */,
+				4FC83E31215E7BA000D4C2C0 /* MenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

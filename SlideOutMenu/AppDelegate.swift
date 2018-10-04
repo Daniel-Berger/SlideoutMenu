@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //bypass storyboard
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: HomeController())
+//        window?.rootViewController = UINavigationController(rootViewController: HomeController())
+        window?.rootViewController = BaseSlidingViewController()
         
         return true
     }
