@@ -6,8 +6,6 @@
 //  Copyright © 2018 dberger1. All rights reserved.
 //
 
-// Dark Cover View
-
 import UIKit
 
 class HomeController: UITableViewController {
