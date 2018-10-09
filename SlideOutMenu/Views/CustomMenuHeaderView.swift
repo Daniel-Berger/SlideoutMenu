@@ -42,7 +42,7 @@ class CustomMenuHeaderView: UIView {
     
     fileprivate func setupStackView() {
         let arrangedSubviews = [
-            UIView(),
+//            UIView(),
             UIStackView(arrangedSubviews: [profileImageView, UIView()]),
             nameLabel,
             SpacerView(space: 16),

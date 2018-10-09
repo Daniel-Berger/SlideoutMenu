@@ -13,10 +13,22 @@ struct MenuItem {
     let title: String
 }
 
+extension MenuController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let baseSlidingVC = BaseSlidingViewController()
+//        baseSlidingVC.closeMenu()
+        
+        let slidingController = UIApplication.shared.keyWindow?.rootViewController as? BaseSlidingViewController
+        slidingController?.didSelectMenuItem(indexPath: indexPath)
+        
+    }
+}
+
 class MenuController: UITableViewController {
     
     let menuItems = [
-        MenuItem(icon: UIImage(named: "profile")!, title: "Profile"),
+        MenuItem(icon: UIImage(named: "profile")!, title: "Home"),
         MenuItem(icon: #imageLiteral(resourceName: "lists"), title: "Lists"),
         MenuItem(icon: #imageLiteral(resourceName: "bookmarks"), title: "Bookmarks"),
         MenuItem(icon: #imageLiteral(resourceName: "moments"), title: "Moments")
@@ -30,10 +42,6 @@ class MenuController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let v = CustomMenuHeaderView()
         return v
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -123,16 +123,45 @@ class BaseSlidingViewController: UIViewController {
         
     }
     
-    fileprivate func closeMenu() {
+     func closeMenu() {
         redViewLeadingConstraint.constant = 0
         isMenuOpen = false
         performAnimations()
     }
     
-    fileprivate func openMenu() {
+    func openMenu() {
         redViewLeadingConstraint.constant = menuWidth
         isMenuOpen = true
         performAnimations()
+    }
+    
+    func didSelectMenuItem(indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            print("0")
+            
+        case 1:
+            print("1")
+            let listController = ListController()
+//            listController.view.backgroundColor = .green
+            redView.addSubview(listController.view)
+            
+        case 2:
+            print("2")
+            let bookmarksController = UIViewController()
+            bookmarksController.view.backgroundColor = .purple
+            redView.addSubview(bookmarksController.view)
+            
+        case 3:
+            print("3")
+            
+        default:
+            print("Unknown selection")
+        }
+        
+        redView.bringSubviewToFront(darkCoverView)
+        closeMenu()
     }
     
     fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
