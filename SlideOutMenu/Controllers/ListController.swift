@@ -13,8 +13,10 @@ class ListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        view.backgroundColor = .white
-        
+        self.navigationItem.title = "List"
+        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.center =
+
         let label = UILabel()
         label.text = "Hello ListController"
         label.font = UIFont.boldSystemFont(ofSize: 24)
@@ -22,16 +24,5 @@ class ListController: UIViewController {
         label.textAlignment = .center
         view.addSubview(label)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

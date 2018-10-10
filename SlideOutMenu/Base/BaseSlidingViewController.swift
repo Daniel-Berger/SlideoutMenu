@@ -17,14 +17,13 @@ class BaseSlidingViewController: UIViewController {
     
     let redView: UIView = {
         let v = UIView()
-        v.backgroundColor = .red
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
     
     let blueView:UIView = {
         let v = UIView()
-        v.backgroundColor = .blue
+        v.backgroundColor = .white
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
     }()
@@ -39,7 +38,7 @@ class BaseSlidingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         
         setupViews()
 //        setupViewControllers()
@@ -71,10 +70,9 @@ class BaseSlidingViewController: UIViewController {
     }
     
     fileprivate func setupViewControllers() {
-        let homeController = HomeController()
-        let menuController = MenuController()
         
-        let homeView = homeController.view!
+        let menuController = MenuController()
+        let homeView = rightViewController.view!
         let menuView = menuController.view!
         
         homeView.translatesAutoresizingMaskIntoConstraints = false
@@ -101,7 +99,7 @@ class BaseSlidingViewController: UIViewController {
             darkCoverView.trailingAnchor.constraint(equalTo: redView.trailingAnchor)
             ])
         
-        addChild(homeController)
+        addChild(rightViewController)
         addChild(menuController)
     }
     
@@ -137,32 +135,42 @@ class BaseSlidingViewController: UIViewController {
     
     func didSelectMenuItem(indexPath: IndexPath) {
         
+        performRightViewCleanUp()
+        closeMenu()
+        
         switch indexPath.row {
         case 0:
-            print("0")
-            
+            rightViewController = UINavigationController(rootViewController: HomeController())
         case 1:
-            print("1")
-            let listController = ListController()
-//            listController.view.backgroundColor = .green
-            redView.addSubview(listController.view)
-            
+            rightViewController = UINavigationController(rootViewController: ListController())
         case 2:
-            print("2")
-            let bookmarksController = UIViewController()
-            bookmarksController.view.backgroundColor = .purple
-            redView.addSubview(bookmarksController.view)
-            
+            rightViewController = UINavigationController(rootViewController: BookmarksController())
         case 3:
-            print("3")
-            
+            let tabBarController = UITabBarController()
+            let momentsController = UIViewController()
+            momentsController.navigationItem.title = "Moments"
+            momentsController.view.backgroundColor = .green
+            let navController = UINavigationController(rootViewController: momentsController)
+            navController.tabBarItem.title = "Moments Tab"
+            tabBarController.viewControllers = [navController]
+            rightViewController = tabBarController
         default:
             print("Unknown selection")
         }
         
+        redView.addSubview(rightViewController.view)
+        addChild(rightViewController)
+        
         redView.bringSubviewToFront(darkCoverView)
-        closeMenu()
+    
     }
+    
+    fileprivate func performRightViewCleanUp() {
+        rightViewController.view.removeFromSuperview()
+        rightViewController.removeFromParent()
+    }
+    
+    var rightViewController: UIViewController = UINavigationController(rootViewController: HomeController())
     
     fileprivate func handleEnded(gesture: UIPanGestureRecognizer) {
 

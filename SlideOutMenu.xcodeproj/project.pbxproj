@@ -19,6 +19,7 @@
 		4FC83E3B2167CDE900D4C2C0 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E3A2167CDE900D4C2C0 /* ProfileImageView.swift */; };
 		4FC83E3D216B897100D4C2C0 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E3C216B897100D4C2C0 /* MenuItemCell.swift */; };
 		4FC83E3F216BE93600D4C2C0 /* ListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E3E216BE93600D4C2C0 /* ListController.swift */; };
+		4FC83E41216CE4A400D4C2C0 /* BookmarksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC83E40216CE4A400D4C2C0 /* BookmarksController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4FC83E3A2167CDE900D4C2C0 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		4FC83E3C216B897100D4C2C0 /* MenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 		4FC83E3E216BE93600D4C2C0 /* ListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListController.swift; sourceTree = "<group>"; };
+		4FC83E40216CE4A400D4C2C0 /* BookmarksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				4FC83E30215E7BA000D4C2C0 /* MenuController.swift */,
 				4FC83E1F215DCC8300D4C2C0 /* HomeController.swift */,
 				4FC83E3E216BE93600D4C2C0 /* ListController.swift */,
+				4FC83E40216CE4A400D4C2C0 /* BookmarksController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 				4FC83E3421664C2500D4C2C0 /* BaseSlidingViewController.swift in Sources */,
 				4FC83E372167976D00D4C2C0 /* CustomMenuHeaderView.swift in Sources */,
 				4FC83E31215E7BA000D4C2C0 /* MenuController.swift in Sources */,
+				4FC83E41216CE4A400D4C2C0 /* BookmarksController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
